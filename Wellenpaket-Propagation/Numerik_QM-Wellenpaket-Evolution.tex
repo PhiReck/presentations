@@ -16,9 +16,16 @@
 %\setbeamercolor{frametitle}{fg=black,bg=white}
 %\setbeamercolor{title}{fg=black,bg=yellow!85!orange}
 \usetheme{CambridgeUS}
+% \usecolortheme[named=red]{structure}
+
 \usepackage{ngerman}
+\usepackage{ulem}
 %\beamersetuncovermixins{\opaqueness<1>{25}}{\opaqueness<2->{15}}
 
+% 1- Block title (background and text)
+\setbeamercolor{block title}{bg=gray!70}
+% 2- Block body (background)
+\setbeamercolor{block body}{bg=gray!10}
 
 
 \newcommand{\vq}{\mathbf{r}}
@@ -29,9 +36,12 @@
 \newcommand{\vk}{\mathbf{k}}
 \newcommand{\vp}{\mathbf{p}}
 \newcommand{\vsigma}{\boldsymbol{\sigma}}
+\newcommand{\FT}{\mathrm{FT}}
 
 \newcommand{\real}{\mathrm{Re}}
 \newcommand{\imag}{\mathrm{Im}}
+
+\newcommand{\absatz}{\vskip3mm}
 
 
 \begin{document}
@@ -41,27 +51,37 @@
 \institute[Probevorlesung: Wahlteil]{Probevorlesung TH Nürnberg, Numerik: Wahlteil}
 \date{tba} 
 
-% \begin{frame}
-% \titlepage\end{frame}
+\begin{frame}
+\titlepage\end{frame}
 
-% \begin{frame}\frametitle{Die 5 Level des Lehrens (aus Sicht des Lernenden)}
+\begin{frame}\frametitle{Die 5 Level des Lehrens (aus Sicht des Lernenden)}
     
-% \begin{enumerate}
-%   \item  \glqq Keine Ahnung wovon er spricht\grqq
-%   \item  \textcolor<2>{red}{\glqq Ich kann mir grob vorstellen, worum es geht\grqq}
-%   \item  \glqq Ich könnte es mit Hilfestellung anwenden\grqq
-%   \item  \glqq Ich könnte es ohne Hilfestellung anwenden\grqq
-%   \item  \glqq Ich könnte es jemand anderem beibringen\grqq
-% \end{enumerate}
-% \end{frame} 
+\begin{enumerate}
+  \item  \glqq Keine Ahnung wovon er spricht\grqq
+  \item  \textcolor<2->{red}{\glqq Ich kann mir grob vorstellen, worum es geht\grqq}
+  \item  \glqq Ich könnte es mit Hilfestellung anwenden\grqq
+  \item  \glqq Ich könnte es ohne Hilfestellung anwenden\grqq
+  \item  \glqq Ich könnte es jemand anderem beibringen\grqq
+\end{enumerate}
+
+\vfill
+
+\visible<3->{
+Vorraussetzung:
+\begin{itemize}
+  \item Differentialgleichungen/-systeme
+  \item Fourier-Trafo
+  \item Taylor-Entwicklung
+\end{itemize}}
+\end{frame} 
     
 
-% \begin{frame}
-% \frametitle{Inhaltsverzeichnis}\tableofcontents
-% \end{frame} 
+\begin{frame}
+\frametitle{Inhaltsverzeichnis}\tableofcontents
+\end{frame} 
 
 
-% \section{Motivation -- Ausgangssituation}
+\section{Motivation -- Ausgangssituation}
 % \subsection{Physikalisch}
 
 
@@ -84,14 +104,14 @@
 % {\footnotesize \alert{ Derode A, Tourin A. and Fink M.}, J. Appl. Phys. \textbf{85}, 6343–52 (1999)}
 % \end{frame}
 
-% \begin{frame}%Water principle
-%   \frametitle{Time mirror for water waves -- \\instantaneous time mirror (ITM)}
-%       \begin{figure}\centering
-%        \includegraphics[width = 0.7\columnwidth]{water1b.png}
-%       \end{figure}
-%   \vspace{\fill}
-%   {\footnotesize \alert{Bacot V., Labousse M., Eddi A., Fink M., Fort E.}, Nature Physics 12, 972 (2016)}
-%   \end{frame}
+\begin{frame}%Water principle
+  \frametitle{Time mirror for water waves -- \\instantaneous time mirror (ITM)}
+      \begin{figure}\centering
+       \includegraphics[width = 0.7\columnwidth]{water1b.png}
+      \end{figure}
+  \vspace{\fill}
+  {\footnotesize \alert{Bacot V., Labousse M., Eddi A., Fink M., Fort E.}, Nature Physics 12, 972 (2016)}
+  \end{frame}
   
 %   \begin{frame}%Water Example
 %   \frametitle{Time mirror for water waves -- \\instantaneous time mirror (ITM)}
@@ -103,76 +123,84 @@
 %   \end{frame}
 
   
-% \begin{frame}[t]%Graphene Introduction
-%   \frametitle{Graphene}
-%  \begin{columns}
-%    \column{0.5\textwidth}
-%      \begin{figure}\centering
-%       \includegraphics[width = 0.8\columnwidth]{lattice.pdf}
-%      \end{figure} 
-%    \column{0.5\textwidth}
-%    \begin{figure}\centering
-%       \includegraphics[width = 0.8\columnwidth]{bands.png}
-%      \end{figure}
-%  \end{columns}
-%  \pause
-%  \begin{block}{Partielle Differentialgleichung -- Schrödingergleichung}
-%   %  \begin{center}
-%   \begin{align*}
-%   \iu \hbar \frac{\partial}{\partial t}  \psi(x, y, t) =& \hat{H} \psi(x, y, t) \\
-%   \pause
-%     \iu \hbar \frac{\partial}{\partial t}  \psi(x, y, t) =& -\iu \hbar v_F \left(\frac{\partial}{\partial x}\sigma_x + \frac{\partial}{\partial y} \sigma_y \right) \psi(x, y, t)
-%    \end{align*}
-%   % \end{center}
-%  \end{block}
-% %  \vskip-0.5cm
-% %  \visible<4->{\begin{columns}
-% %    \column{0.55\textwidth}
-% %    $f(t) = \left\lbrace \begin{array}{ll} 
-% %        1, & \text{if } t_0 < t < t_0+\Delta t \\ 
-% %        0, & \text{otherwise} \end{array} \right.$
-% %    \column{0.45\textwidth}
-% %     \begin{figure} \centering 
-% %  %       analytical
-% %      \includegraphics[width=1\textwidth]{pulse_shape2}
-% %    \end{figure} 
-% %  \end{columns}}
+\begin{frame}[t]%Graphene Introduction
+  \frametitle{Graphen}
+ \begin{columns}
+   \column{0.5\textwidth}
+     \begin{figure}\centering
+      \includegraphics[width = 0.8\columnwidth]{lattice.pdf}
+     \end{figure} 
+   \column{0.5\textwidth}
+   \begin{figure}\centering
+      \includegraphics[width = 0.8\columnwidth]{bands.png}
+     \end{figure}
+ \end{columns}
+ \pause
+ \begin{block}{Partielle Differentialgleichung -- Schrödingergleichung}
+  %  \begin{center}
+  \begin{align*}
+  \iu \hbar \frac{\partial}{\partial t}  \psi(x, y, t) =& \hat{H} \psi(x, y, t) \\
+  \pause
+    \iu \hbar \frac{\partial}{\partial t}  \psi(x, y, t) =& -\iu \hbar v_F \left(\frac{\partial}{\partial x}\sigma_x + \frac{\partial}{\partial y} \sigma_y \right) \psi(x, y, t)
+   \end{align*}
+  % \end{center}
+ \end{block}
+%  \vskip-0.5cm
+%  \visible<4->{\begin{columns}
+%    \column{0.55\textwidth}
+%    $f(t) = \left\lbrace \begin{array}{ll} 
+%        1, & \text{if } t_0 < t < t_0+\Delta t \\ 
+%        0, & \text{otherwise} \end{array} \right.$
+%    \column{0.45\textwidth}
+%     \begin{figure} \centering 
+%  %       analytical
+%      \includegraphics[width=1\textwidth]{pulse_shape2}
+%    \end{figure} 
+%  \end{columns}}
  
-%  \end{frame}
+ \end{frame}
 
-%  \section{Numerische Problemstellung: Anfangswertproblem mit partieller DGL 1. Ordnung}
+ \section{Numerische Problemstellung: Anafangswertproblem mit partieller DGL}
  
-% \begin{frame}[t] %Numerische Problemstellung
-%   \frametitle{Numerische Problemstellung}
-%  Quantenmechanische Elektronen-Wellenfunktion: \begin{equation*}\psi: \mathbb{R}^{n+1} \rightarrow \mathbb{C}^m \quad \text{$n$: Raum-Dimensionen, $m$: (Pseudo-)Spin-Dimension}\end{equation*}
+\begin{frame}[t] %Numerische Problemstellung
+  \frametitle{Numerische Problemstellung}
+ Quantenmechanische Elektronen-Wellenfunktion: \\
+ $\psi: \mathbb{R}^{n+1} \rightarrow \mathbb{C}^m \quad \text{$n$: Raum-Dimensionen, $m$: (Pseudo-)Spin-Dimension}$
 
-%  Hamilton-Operator (Differentialoperator): $\hat{H}(\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, t)$
+ \absatz
+ Hamilton-Operator (Differentialoperator): $\hat{H}(x, y, \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, t)$
 
-%  \begin{block}{Anfangswertproblem mit partiellem DGLS 1. Ordnung}
-%   \begin{equation*}
-%     \iu \hbar \frac{\partial}{\partial t}  \psi(x, y, t) = \hat{H} \cdot \psi(x, y, t) 
-%   \end{equation*}
+ \begin{block}{Anfangswertproblem mit partiellem DGLS (Graphen: 1. Ordnung)}
+  \begin{equation*}
+    \iu \hbar \frac{\partial}{\partial t}  \psi(x, y, t) = \hat{H} \cdot \psi(x, y, t) 
+  \end{equation*}
 
-%     \text{mit gegebenem }$\psi(x, y, t=0) =\psi_0(x, y)$
-%     \end{block}
-% \end{frame}
+    \text{mit gegebenem }$\psi(x, y, t=0) =\psi_0(x, y)$
+    \end{block}
+\end{frame}
 
 
-% \section{Schritte des numerischen Lösens}
-% \begin{frame}[t] %Diskretisieren auf Gitter
-%   \frametitle{Lösung von Teilproblemen Ia: Diskretisierung auf Raum-Gitter}
-%  Quantenmechanische Elektronen-Wellenfunktion: \begin{equation*}\psi: \mathbb{R}^{n+1} \rightarrow \mathbb{C}^m \quad \text{$n$: Raum-Dimensionen, $m$: (Pseudo-)Spin-Dimension}\end{equation*}
+\section{Schritte des numerischen Lösens}
+\begin{frame}[t] %Diskretisieren auf Gitter
+  \frametitle{Lösung von Teilproblemen Ia: Diskretisierung auf Raum-Gitter}
+  BILD
+  
+ Quantenmechanische Elektronen-Wellenfunktion: \\
+ \sout{$\psi: \mathbb{R}^{n+1} \rightarrow \mathbb{C}^m$} $ \quad \text{$n$: Raum-Dimensionen, $m$: (Pseudo-)Spin-Dimension}$
+ \\
+\textcolor{red}{$\psi: \mathbb{R} \rightarrow \mathbb{C}^{\text{Länge}^n\cdot m} $}
 
-%  Hamilton-Operator (Differentialoperator): $\hat{H}(\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, t)$
+ \absatz
+ Hamilton-Operator (Differentialoperator): $\hat{H}\textcolor{red}{(\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, t)}$
 
-%  \begin{block}{Anfangswertproblem mit partiellem DGLS 1. Ordnung}
-%   \begin{equation*}
-%     \iu \hbar \frac{\partial}{\partial t}  \psi(x, y, t) = \hat{H} \cdot \psi(x, y, t) 
-%   \end{equation*}
+ \begin{block}{Anfangswertproblem mit partiellem DGLS 1. Ordnung}
+  \begin{equation*}
+    \iu \hbar \frac{\partial}{\partial t}  \psi\textcolor{red}{(t)} = \hat{H} \cdot \psi\textcolor{red}{(t)} 
+  \end{equation*}
 
-%     \text{mit gegebenem }$\psi(x, y, t=0) =\psi_0(x, y)$
-%     \end{block}
-% \end{frame}
+    \text{mit gegebenem }$\psi\textcolor{red}{(t=0)} =\psi_0$
+    \end{block}
+\end{frame}
 
 % \begin{frame}[t] %Diskretisieren auf Gitter
 %   \frametitle{Lösung von Teilproblemen Ib: Diskretisierung auf Zeit-Gitter}
@@ -189,50 +217,52 @@
 %     \end{block}
 % \end{frame}
 
-% \begin{frame}[t] %Räumliche Ableitung durch Fourier-Trafo
-%   \frametitle{Lösung von Teilproblemen II: Räumliche Ableitung durch Fourier-Transformationen}
-%  Quantenmechanische Elektronen-Wellenfunktion: \begin{equation*}\psi: \mathbb{R}^{n+1} \rightarrow \mathbb{C}^m \quad \text{$n$: Raum-Dimensionen, $m$: (Pseudo-)Spin-Dimension}\end{equation*}
+\begin{frame}[t] %Räumliche Ableitung durch Fourier-Trafo
+  \frametitle{Lösung von Teilproblemen II: Räumliche Ableitung durch Fourier-Transformationen}
+  \begin{align*}
+  \frac{\partial }{\partial x}f(x)
+      &\uncover<2->{= \frac{\partial }{\partial x} \underbrace{\FT^{-1}\left[\: \FT[f](k) \, \right](x)}_{f(x)} }  \\
+      &\uncover<3->{= \frac{1}{\sqrt{2\pi}} \frac{\partial }{\partial x}  \int e^{\pm \iu kx} \:\FT[f](k) \,dk }\\
+      &\uncover<4->{= \frac{1}{\sqrt{2\pi}}  \int \pm \iu k\, e^{\pm \iu kx} \:\FT[f](k) \,dk }\\
+      &\uncover<5->{=\pm \iu \:\FT^{-1} [k \:\FT[f](k)] (x) }
+  \end{align*}
 
-%  Hamilton-Operator (Differentialoperator): $\hat{H}(\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, t)$
+  \visible<6->{ $\hat{H}(\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, t) \rightarrow \hat{H}(k_x, k_y, t)$}
+  
+  \absatz
+  \visible<7->{Fast-Fourier-Trafo (FFT) wird verwendet.}
 
-%  \begin{block}{Anfangswertproblem mit partiellem DGLS 1. Ordnung}
-%   \begin{equation*}
-%     \iu \hbar \frac{\partial}{\partial t}  \psi(x, y, t) = \hat{H} \cdot \psi(x, y, t) 
-%   \end{equation*}
-
-%     \text{mit gegebenem }$\psi(x, y, t=0) =\psi_0(x, y)$
-%     \end{block}
-% \end{frame}
+\end{frame}
 
 
-% \begin{frame}[t] %Zeitliche Ableitung durch formale Lösung
-%   \frametitle{Lösung von Teilproblemen IIIa: Zeitliche Ableitung durch Formale Lösung}
-%  Quantenmechanische Elektronen-Wellenfunktion: \begin{equation*}\psi: \mathbb{R}^{n+1} \rightarrow \mathbb{C}^m \quad \text{$n$: Raum-Dimensionen, $m$: (Pseudo-)Spin-Dimension}\end{equation*}
+\begin{frame}[t] %Zeitliche Ableitung durch formale Lösung
+  \frametitle{Lösung von Teilproblemen IIIa: Zeitliche Ableitung durch Formale Lösung}
+ Quantenmechanische Elektronen-Wellenfunktion: \begin{equation*}\psi: \mathbb{R}^{n+1} \rightarrow \mathbb{C}^m \quad \text{$n$: Raum-Dimensionen, $m$: (Pseudo-)Spin-Dimension}\end{equation*}
 
-%  Hamilton-Operator (Differentialoperator): $\hat{H}(k_x, k_y, t)$
+ Hamilton-Operator (Differentialoperator): $\hat{H}(k_x, k_y, t)$
 
-%  \begin{columns}
-%   \column{0.45\textwidth}
-%  \begin{block}{Formale Lösung}
-%   \begin{align*}
-%     \iu \hbar \frac{\partial}{\partial t}  \psi(t) = \hat{H} \cdot \psi(t)  \\
-%     \Rightarrow \visible<5->{ \psi(t) = e^{-\frac{\iu}{\hbar}\hat{H}t} \psi_0}
-%   \end{align*}
-%     \end{block}
+ \begin{columns}
+  \column{0.45\textwidth}
+ \begin{block}{Formale Lösung}
+  \begin{align*}
+    \iu \hbar \frac{\partial}{\partial t}  \psi(t) = \hat{H} \cdot \psi(t)  \\
+    \visible<5->{\Rightarrow  \psi(t) = e^{-\frac{\iu}{\hbar}\hat{H}t} \psi_0}
+  \end{align*}
+    \end{block}
     
-%   \column{0.45\textwidth}
-%   \visible<2->{
-%   \begin{block}{Formale Lösung -- simple}
-%    \begin{align*}
-%      \frac{d}{d t}  f(t) = a\cdot f(t)  \\
-%      \Rightarrow f(t) = \visible<3->{ C\, e^{at}}\\
-%      \visible<4->{\Rightarrow f(t) =  f(0)\, e^{at}}
-%    \end{align*}
-%      \end{block}}
+  \column{0.45\textwidth}
+  \visible<2->{
+  \begin{block}{Formale Lösung -- simple}
+   \begin{align*}
+     \frac{d}{d t}  &f(t) = a\cdot f(t)  \\
+     \Rightarrow &f(t) = \visible<3->{ C\, e^{at}}\\
+     \visible<4->{\Rightarrow &f(t) =  f(0)\, e^{at}}
+   \end{align*}
+     \end{block}}
      
-%   \end{columns}
-%   \visible<6->{Problem verschoben von Lösen eines DGLS zu Berechnen einer Matrix-Exponentialfunktion}
-% \end{frame}
+  \end{columns}
+  \visible<6->{Problem verschoben von Lösen eines DGLS zu Berechnen einer Matrix-Exponentialfunktion}
+\end{frame}
 
 
 \begin{frame}[t] %Berechnung der Matrix-Exponentialfunktion
@@ -288,6 +318,23 @@
   wobei $J_n$ Bessel-Funktion der 1. Art
 \end{frame}
 
+\section{Beispiel: Echo eines Wellenpakets in Graphen}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 % \begin{frame}
 % \frametitle{Titel} 
 % Die einzelnen Frames sollte einen Titel haben
@@ -336,8 +383,8 @@
 % \end{enumerate}
 % \end{frame}
 
-\section{Abschnitt Nr.3} 
-\subsection{Tabellen}
+% \section{Abschnitt Nr.3} 
+% \subsection{Tabellen}
 \begin{frame}\frametitle{Tabellen}
 \begin{tabular}{|c|c|c|}
 \hline
@@ -362,8 +409,8 @@ A & B & C \\
 \end{frame}
 
 
-\section{Abschnitt Nr. 4}
-\subsection{Bl\"ocke}
+% \section{Abschnitt Nr. 4}
+% \subsection{Bl\"ocke}
 \begin{frame}\frametitle{Bl\"ocke}
 
 \begin{block}{Blocktitel}
@@ -380,8 +427,8 @@ Blocktext
 \end{alertblock}
 \end{frame}
 
-\section{Abschnitt Nr. 5}
-\subsection{Geteilter Bildschirm}
+% \section{Abschnitt Nr. 5}
+% \subsection{Geteilter Bildschirm}
 
 \begin{frame}\frametitle{Zerteilen des Bildschirmes}
 \begin{columns}
@@ -406,7 +453,7 @@ Sascha Frank & \LaTeX \ Kursreihe \\
 \end{columns}
 \end{frame}
 
-\subsection{Bilder} 
+% \subsection{Bilder} 
 \begin{frame}\frametitle{Bilder in Beamer}
 \begin{figure}
 % \includegraphics[scale=0.5]{PIC1} 
@@ -415,7 +462,7 @@ Sascha Frank & \LaTeX \ Kursreihe \\
 \end{frame}
 
 
-\subsection{Bilder und Listen kombiniert} 
+% \subsection{Bilder und Listen kombiniert} 
 
 \begin{frame}
 \frametitle{Bilder und Itemization in Beamer}
@@ -438,7 +485,7 @@ Sascha Frank & \LaTeX \ Kursreihe \\
 \end{columns}
 \end{frame}
 
-\subsection{Bilder die mehr Platz brauchen} 
+% \subsection{Bilder die mehr Platz brauchen} 
 \begin{frame}[plain]
 \frametitle{plain, oder wie man mehr Platz hat}
 \begin{figure}
