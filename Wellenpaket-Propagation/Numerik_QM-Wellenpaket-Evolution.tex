@@ -164,7 +164,7 @@ Vorraussetzung:
  
 \begin{frame}[t] %Numerische Problemstellung
   \frametitle{Numerische Problemstellung}
- Quantenmechanische Elektronen-Wellenfunktion: \\
+ Quantenmechanische Elektron-Wellenfunktion: \\
  $\psi: \mathbb{R}^{n+1} \rightarrow \mathbb{C}^m \quad \text{$n$: Raum-Dimensionen, $m$: (Pseudo-)Spin-Dimension}$
 
  \absatz
@@ -179,13 +179,36 @@ Vorraussetzung:
     \end{block}
 \end{frame}
 
-
 \section{Schritte des numerischen Lösens}
 \begin{frame}[t] %Diskretisieren auf Gitter
   \frametitle{Lösung von Teilproblemen Ia: Diskretisierung auf Raum-Gitter}
-  BILD
-  
- Quantenmechanische Elektronen-Wellenfunktion: \\
+
+\begin{columns}
+  \column{0.56\textwidth}
+  \only<1>{\begin{figure}\centering
+   \includegraphics[width = \columnwidth]{function_no_grid_auto.png}
+  \end{figure}}
+  \only<2->{\begin{figure}\centering
+     \includegraphics[width = \columnwidth]{function_on_grid_auto.png}
+    \end{figure} }
+  \column{0.4\textwidth}
+  \begin{align*}
+    &&\psi(x) &= \quad e^{-x^2} \\
+    \uncover<2->{
+    \rightarrow &&\psi &= \left(
+      \begin{array}{c}
+        \vdots \\ 0.98202114\\ 0.9979862 \\ 0.9979862 \\  0.98202114 \\ 0.95085313 \\ 0.90594606 \\\vdots 
+      \end{array}\right)
+      }
+  \end{align*}
+    
+\end{columns}
+
+\end{frame}
+
+\begin{frame}[t] %Diskretisieren auf Gitter
+  \frametitle{Lösung von Teilproblemen Ia: Diskretisierung auf Raum-Gitter}
+ Quantenmechanische Elektron-Wellenfunktion: \\
  \sout{$\psi: \mathbb{R}^{n+1} \rightarrow \mathbb{C}^m$} $ \quad \text{$n$: Raum-Dimensionen, $m$: (Pseudo-)Spin-Dimension}$
  \\
 \textcolor{red}{$\psi: \mathbb{R} \rightarrow \mathbb{C}^{\text{Länge}^n\cdot m} $}
@@ -204,7 +227,7 @@ Vorraussetzung:
 
 % \begin{frame}[t] %Diskretisieren auf Gitter
 %   \frametitle{Lösung von Teilproblemen Ib: Diskretisierung auf Zeit-Gitter}
-%  Quantenmechanische Elektronen-Wellenfunktion: \begin{equation*}\psi: \mathbb{R}^{n+1} \rightarrow \mathbb{C}^m \quad \text{$n$: Raum-Dimensionen, $m$: (Pseudo-)Spin-Dimension}\end{equation*}
+%  Quantenmechanische Elektron-Wellenfunktion: \begin{equation*}\psi: \mathbb{R}^{n+1} \rightarrow \mathbb{C}^m \quad \text{$n$: Raum-Dimensionen, $m$: (Pseudo-)Spin-Dimension}\end{equation*}
 
 %  Hamilton-Operator (Differentialoperator): $\hat{H}(\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, t)$
 
@@ -236,8 +259,8 @@ Vorraussetzung:
 
 
 \begin{frame}[t] %Zeitliche Ableitung durch formale Lösung
-  \frametitle{Lösung von Teilproblemen IIIa: Zeitliche Ableitung durch Formale Lösung}
- Quantenmechanische Elektronen-Wellenfunktion: \begin{equation*}\psi: \mathbb{R}^{n+1} \rightarrow \mathbb{C}^m \quad \text{$n$: Raum-Dimensionen, $m$: (Pseudo-)Spin-Dimension}\end{equation*}
+  \frametitle{Lösung von Teilproblemen IIIa: Zeitliche Ableitung durch formale Lösung}
+ Quantenmechanische Elektron-Wellenfunktion: \begin{equation*}\psi: \mathbb{R}^{n+1} \rightarrow \mathbb{C}^m \quad \text{$n$: Raum-Dimensionen, $m$: (Pseudo-)Spin-Dimension}\end{equation*}
 
  Hamilton-Operator (Differentialoperator): $\hat{H}(k_x, k_y, t)$
 
@@ -309,13 +332,13 @@ Vorraussetzung:
 
   After some magic:
 
-  $\psi(t) = \sum\limits_{n=0}^N e^{-\frac{\iu}{\hbar}E_0(t-t_0)} a_n(\frac{\Delta E(t-t_0)}{2\hbar}) \underbrace{T_n(-\iu\hat{H})\psi(t_0)}_{P_n}$
+  $\psi(t) = \sum\limits_{n=0}^N e^{-\frac{\iu}{\hbar}E_0 t} a_n(\frac{\Delta E t}{2\hbar}) T_n(-\iu\hat{H})\psi(0)$
           
   mit
 
   $a_n(x) = (2-\delta_{0,n})(-\iu)^n J_n(x)$
 
-  wobei $J_n$ Bessel-Funktion der 1. Art
+  wobei $J_n$ Bessel-Funktion der 1. Art.
 \end{frame}
 
 \section{Beispiel: Echo eines Wellenpakets in Graphen}
