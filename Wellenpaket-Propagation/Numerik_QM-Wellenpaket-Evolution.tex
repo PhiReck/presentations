@@ -135,16 +135,18 @@ Vorraussetzung:
       \includegraphics[width = 0.8\columnwidth]{bands.png}
      \end{figure}
  \end{columns}
- \pause
+ \visible<2->{
  \begin{block}{Partielle Differentialgleichung -- Schrödingergleichung}
   %  \begin{center}
   \begin{align*}
   \iu \hbar \frac{\partial}{\partial t}  \psi(x, y, t) =& \hat{H} \psi(x, y, t) \\
-  \pause
+  \uncover<3->{
     \iu \hbar \frac{\partial}{\partial t}  \psi(x, y, t) =& -\iu \hbar v_F \left(\frac{\partial}{\partial x}\sigma_x + \frac{\partial}{\partial y} \sigma_y \right) \psi(x, y, t)
+  }
    \end{align*}
   % \end{center}
  \end{block}
+ }
 %  \vskip-0.5cm
 %  \visible<4->{\begin{columns}
 %    \column{0.55\textwidth}
@@ -156,11 +158,10 @@ Vorraussetzung:
 %  %       analytical
 %      \includegraphics[width=1\textwidth]{pulse_shape2}
 %    \end{figure} 
-%  \end{columns}}
- 
+%  \end{columns}} 
  \end{frame}
 
- \section{Numerische Problemstellung: Anafangswertproblem mit partieller DGL}
+ \section{Numerische Problemstellung: AWP mit partieller DGL}
  
 \begin{frame}[t] %Numerische Problemstellung
   \frametitle{Numerische Problemstellung}
@@ -170,12 +171,12 @@ Vorraussetzung:
  \absatz
  Hamilton-Operator (Differentialoperator): $\hat{H}(x, y, \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, t)$
 
- \begin{block}{Anfangswertproblem mit partiellem DGLS (Graphen: 1. Ordnung)}
+ \begin{block}{Anfangswertproblem (AWP) mit partiellem DGLS (Graphen: 1. Ordnung)}
   \begin{equation*}
     \iu \hbar \frac{\partial}{\partial t}  \psi(x, y, t) = \hat{H} \cdot \psi(x, y, t) 
   \end{equation*}
 
-    \text{mit gegebenem }$\psi(x, y, t=0) =\psi_0(x, y)$
+    \text{mit gegebenem }$\psi(x, y, t=0)$
     \end{block}
 \end{frame}
 
@@ -221,7 +222,7 @@ Vorraussetzung:
     \iu \hbar \frac{\partial}{\partial t}  \psi\textcolor{red}{(t)} = \hat{H} \cdot \psi\textcolor{red}{(t)} 
   \end{equation*}
 
-    \text{mit gegebenem }$\psi\textcolor{red}{(t=0)} =\psi_0$
+    \text{mit gegebenem }$\psi\textcolor{red}{(t=0)}$
     \end{block}
 \end{frame}
 
@@ -242,18 +243,21 @@ Vorraussetzung:
 
 \begin{frame}[t] %Räumliche Ableitung durch Fourier-Trafo
   \frametitle{Lösung von Teilproblemen II: Räumliche Ableitung durch Fourier-Transformationen}
+  \vskip-1cm
   \begin{align*}
   \frac{\partial }{\partial x}f(x)
       &\uncover<2->{= \frac{\partial }{\partial x} \underbrace{\FT^{-1}\left[\: \FT[f](k) \, \right](x)}_{f(x)} }  \\
       &\uncover<3->{= \frac{1}{\sqrt{2\pi}} \frac{\partial }{\partial x}  \int e^{\pm \iu kx} \:\FT[f](k) \,dk }\\
       &\uncover<4->{= \frac{1}{\sqrt{2\pi}}  \int \pm \iu k\, e^{\pm \iu kx} \:\FT[f](k) \,dk }\\
-      &\uncover<5->{=\pm \iu \:\FT^{-1} [k \:\FT[f](k)] (x) }
+      &\uncover<5->{=\pm \iu \:\FT^{-1} [k \:\FT[f](k)] (x) }\\
+      % \text{\absatz}
+      \uncover<6->{\frac{\partial^n }{\partial x^n}f(x)&=}\uncover<7->{(\pm \iu)^n \:\FT^{-1} [k^n \:\FT[f](k)] (x) }
   \end{align*}
 
-  \visible<6->{ $\hat{H}(\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, t) \rightarrow \hat{H}(k_x, k_y, t)$}
+  \visible<8->{ $\hat{H}(\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, t) \rightarrow \hat{H}(k_x, k_y, t)$}
   
   \absatz
-  \visible<7->{Fast-Fourier-Trafo (FFT) wird verwendet.}
+  \visible<9->{Fast-Fourier-Trafo (FFT) wird verwendet.}
 
 \end{frame}
 
@@ -269,7 +273,7 @@ Vorraussetzung:
  \begin{block}{Formale Lösung}
   \begin{align*}
     \iu \hbar \frac{\partial}{\partial t}  \psi(t) = \hat{H} \cdot \psi(t)  \\
-    \visible<5->{\Rightarrow  \psi(t) = e^{-\frac{\iu}{\hbar}\hat{H}t} \psi_0}
+    \visible<5->{\Rightarrow  \psi(t) = e^{-\frac{\iu}{\hbar}\hat{H}t} \psi(0)}
   \end{align*}
     \end{block}
     
@@ -302,12 +306,11 @@ Vorraussetzung:
       \end{block}
       \pause
       Es stellt sich heraus, dass die Taylor-Reihe nicht besonders gut konvergiert.
-      
-      \alert{PYTHON Skript für Vergleich }
+    
       
     \column{0.55\textwidth}
     \visible<5->{
-    \begin{block}{Tschebyschow-Polynome}
+    \begin{block}{Tschebyschew-Polynome}
       Rekursion:
       \vskip-8mm
      \begin{align*}
@@ -329,19 +332,37 @@ Vorraussetzung:
 
 \begin{frame}[t] %Lösung
   \frametitle{Gesamte Lösung}
-
-  After some magic:
-
-  $\psi(t) = \sum\limits_{n=0}^N e^{-\frac{\iu}{\hbar}E_0 t} a_n(\frac{\Delta E t}{2\hbar}) T_n(-\iu\hat{H})\psi(0)$
-          
+  \vskip-5mm
+  % \begin{block}{Anfangswertproblem (AWP) mit partiellem DGLS (Graphen: 1. Ordnung)}
+    \begin{equation*}
+      \iu \hbar \frac{\partial}{\partial t}  \psi(t) = \hat{H}\left(\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, t\right) \cdot \psi(t) 
+    \end{equation*}
+  
+      \text{mit gegebenem }$\psi(t=0)$.
+      % \end{block}
+    \begin{block}{Lösung (after some magic)}
+  \begin{center}$\psi(t) = \sum\limits_{n=0}^N e^{-\frac{\iu}{\hbar}E_0 t} a_n(\frac{\Delta E t}{2\hbar}) T_n(-\iu\hat{H}_\text{norm})\psi(0)$\end{center}
+    \end{block}     
   mit
 
-  $a_n(x) = (2-\delta_{0,n})(-\iu)^n J_n(x)$
-
-  wobei $J_n$ Bessel-Funktion der 1. Art.
+    \begin{itemize}
+  \item $T_n(x)$: Tschebyschew-Polynome
+  \item $\hat{H}_\text{norm} = 2 \frac{\hat{H}-E_0}{\Delta E}$
+  \item $E_0$, $\Delta E$: Skalierungsfaktoren 
+  \item $a_n(x) = (2-\delta_{0,n})(-\iu)^n J_n(x)$
+  \item $J_n(x)$: Bessel-Funktion der 1. Art
+  \item $N(t) \approx 40 + 1.04 \frac{\Delta E t}{2\hbar}$
+    \end{itemize}
 \end{frame}
 
 \section{Beispiel: Echo eines Wellenpakets in Graphen}
+\begin{frame}[t]%
+  \vskip-3mm
+  \frametitle{Echo in Graphen}
+     \begin{figure}\centering
+      \includegraphics[width = 0.5\columnwidth]{hbar-Wellenpaket.png}
+     \end{figure} 
+ \end{frame}
 
 
 
