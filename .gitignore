@@ -1,0 +1,11 @@
+*.aux
+*.nav
+*.out
+*.toc
+*.snm
+*.log
+
+*.pdf
+*.png
+*.jpg
+*.jpeg
