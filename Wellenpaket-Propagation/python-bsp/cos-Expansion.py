@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from numpy.polynomial import Chebyshev as T
 import matplotlib.animation as animation
-from math import factorial
-from special_functions import besselj
+from taylorChebLib import taylorCoeff, chebyCoeff
+
 
 x = np.linspace(-1, 1, 100)  # Sample data.
 cosFreq = 15
@@ -33,24 +33,6 @@ artists = []
 functions_to_plot = []
 functions_to_plot.append(np.cos(cosFreq*x))
 ax.plot(x, functions_to_plot[0], label='cos('+str(cosFreq)+'x)')
-
-def taylorCoeff(order, freq):
-    if order == 0:
-        return 1
-    if order % 2 == 1:
-        return 0
-    
-    prefac = cosFreq
-    for i in range(1,order):
-        prefac*=cosFreq/i
-
-    return (-1)**(n/2) * prefac
-
-def chebyCoeff(order, freq):
-    fac=2
-    if order == 0:
-        fac = 1
-    return fac*(-1j)**(order)*besselj(order, freq)
 
 artists=[]
 
