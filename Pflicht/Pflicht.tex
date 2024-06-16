@@ -1,0 +1,313 @@
+% Dieser Text ist urheberrechtlich gesch�tzt
+% Er stellt einen Auszug eines von mir erstellten Referates dar
+% und darf nicht gewerblich genutzt werden
+% die private bzw. Studiums bezogen Nutzung ist frei
+% Nov. 2007
+% Autor: Sascha Frank 
+% Universit�t Freiburg 
+% www.informatik.uni-freiburg.de/~frank/
+\documentclass{beamer}
+\setbeamertemplate{navigation symbols}{}
+
+
+\graphicspath{ {pictures/} }
+
+
+%\setbeamercolor{frametitle}{fg=black,bg=white}
+%\setbeamercolor{title}{fg=black,bg=yellow!85!orange}
+\usetheme{CambridgeUS}
+\usepackage{ngerman}
+\usepackage{ulem}
+%\beamersetuncovermixins{\opaqueness<1>{25}}{\opaqueness<2->{15}}
+
+
+
+\newcommand{\vq}{\mathbf{r}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}  %text d in integrals
+\newcommand{\iu}{{i\mkern1mu}} 	%imaginary unit
+\newcommand{\me}{\mathrm{e}} 	%euler
+\newcommand{\vj}{\mathbf{j}}
+\newcommand{\vk}{\mathbf{k}}
+\newcommand{\vp}{\mathbf{p}}
+\newcommand{\vsigma}{\boldsymbol{\sigma}}
+
+\newcommand{\real}{\mathrm{Re}}
+\newcommand{\imag}{\mathrm{Im}}
+
+
+\begin{document}
+\title{Numerik in der }
+\subtitle{Am Beispiel X}
+\author[Phillipp Reck]{Dr. rer. nat. Phillipp Reck}
+\institute[Probevorlesung: Pflichtteil]{Probevorlesung TH Nürnberg, Numerik: Pflichtteil}
+\date{tba} 
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\institute[Probevorlesung: Pflichtteil]{Probe\sout{\textcolor{red}{vorlesung}}vortrag TH Nürnberg, Numerik: Pflichtteil}
+
+
+\begin{frame}\frametitle{Probevorlesung?}
+    \pause
+  \begin{enumerate}
+    \item Zeit
+    \item unterschiedliches Vorwissen im Publikum
+  \end{enumerate}
+  \end{frame} 
+
+\begin{frame}
+  \titlepage
+  \end{frame}
+  
+
+
+\begin{frame}\frametitle{Die 5 Level des Lehrens (aus Sicht des Lernenden)}
+    \pause
+\begin{enumerate}
+  \item  \glqq Keine Ahnung wovon er spricht\grqq\pause
+  \item  \glqq Ich kann mir grob vorstellen, worum es geht\grqq\pause
+  \item  \textcolor<7>{red}{\glqq Ich könnte es mit Hilfestellung anwenden\grqq}\pause
+  \item  \glqq Ich könnte es ohne Hilfestellung anwenden\grqq\pause
+  \item  \glqq Ich könnte es jemand anderem beibringen\grqq\pause
+\end{enumerate}
+\end{frame} 
+
+
+\begin{frame}\frametitle{Nutzen der Numerik}
+    \begin{block}{Numerik}
+      Ein mathematisches Problem mit Hilfe des Computers näherungsweise zu lösen.
+    \end{block}
+    \pause
+      \begin{itemize}
+        \item (Lineare) Gleichungssysteme
+        \item Integration
+        \item Differentialgleichungen
+        \item Interpolation, Fitting???
+      \end{itemize}
+    \pause
+
+    BILD: Blackbox computer ---> eher nächste Seite
+\end{frame} 
+
+
+\begin{frame}\frametitle{Ist es sinnvoll, was der Computer berechnet?}
+  \framesubtitle{Kondition, Stabilität, Konsistenz, Konvergenz}
+
+   BILDER?
+  \begin{block}{Kondition $\kappa$}
+    Wie stark sich ein Fehler in der Problemstellung/den Eingangsdaten auf das Ergebnis auswirkt. \\
+    (Unabhängig von Algorithmus)
+  \end{block}
+  \pause
+  \begin{block}{Stabilität $???$}
+    Wie stark wirkt sich ein Fehler in der Problemstellung/den Eingangsdaten auf das Ergebnis aus. \\
+    (Abhängig von Algorithmus)
+  \end{block}
+  \pause
+  
+  \begin{block}{Konsistenz $???$}
+    Wie gut ein Algorithmus bei perfekten Eingangsdaten ist. \\
+    (Abhängig von Algorithmus)
+  \end{block}
+  \pause
+  
+  \begin{block}{Konvergenz $???$}
+    Wie schnell liefert der Algorithmus ein brauchbares Ergebnis. \\
+    (Abhängig von Algorithmus)
+  \end{block}
+\end{frame} 
+
+% \section{Beispiel -- Problemstellung}
+
+% \section{Thema -- Verallgemeinertes Problem}
+
+% \section{Thema -- Kondition}
+
+% \section{Thema -- Algorithmus}
+
+% \section{Thema -- Stabilität, Konsistenz, Konvergenz}
+
+% \section{Beispiel -- Lösung}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% \begin{frame}
+% \frametitle{Titel} 
+% Die einzelnen Frames sollte einen Titel haben
+% \end{frame}
+% \subsection{Unterabschnitt Nr.1.1  }
+% \begin{frame} 
+% Denn ohne Titel fehlt ihnen was
+% \end{frame}
+
+
+% \section{Abschnitt Nr. 2} 
+% \subsection{Listen I}
+% \begin{frame}\frametitle{Aufz\"ahlung}
+% \begin{itemize}
+% \item Einf\"uhrungskurs in \LaTeX  
+% \item Kurs 2  
+% \item Seminararbeiten und Pr\"asentationen mit \LaTeX 
+% \item Die Beamerclass 
+% \end{itemize} 
+% \end{frame}
+
+% \begin{frame}\frametitle{Aufz\"ahlung mit Pausen}
+% \begin{itemize}
+% \item  Einf\"uhrungskurs in \LaTeX \pause 
+% \item  Kurs 2 \pause 
+% \item  Seminararbeiten und Pr\"asentationen mit \LaTeX \pause 
+% \item  Die Beamerclass
+% \end{itemize} 
+% \end{frame}
+
+% \subsection{Listen II}
+% \begin{frame}\frametitle{Numerierte Liste}
+% \begin{enumerate}
+% \item  Einf\"uhrungskurs in \LaTeX 
+% \item  Kurs 2
+% \item  Seminararbeiten und Pr\"asentationen mit \LaTeX 
+% \item  Die Beamerclass
+% \end{enumerate}
+% \end{frame}
+% \begin{frame}\frametitle{Numerierte Liste mit Pausen}
+% \begin{enumerate}
+% \item  Einf\"uhrungskurs in \LaTeX \pause 
+% \item  Kurs 2 \pause 
+% \item  Seminararbeiten und Pr\"asentationen mit \LaTeX \pause 
+% \item  Die Beamerclass
+% \end{enumerate}
+% \end{frame}
+
+\section{Abschnitt Nr.3} 
+\subsection{Tabellen}
+\begin{frame}\frametitle{Tabellen}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Zeitpunkt} & \textbf{Kursleiter} & \textbf{Titel} \\
+\hline
+WS 04/05 & Sascha Frank &  Erste Schritte mit \LaTeX  \\
+\hline
+SS 05 & Sascha Frank & \LaTeX \ Kursreihe \\
+\hline
+\end{tabular}
+\end{frame}
+
+
+\begin{frame}\frametitle{Tabellen mit Pause}
+\begin{tabular}{c c c}
+A & B & C \\ 
+\pause 
+1 & 2 & 3 \\  
+\pause 
+A & B & C \\ 
+\end{tabular} 
+\end{frame}
+
+
+\section{Abschnitt Nr. 4}
+\subsection{Bl\"ocke}
+\begin{frame}\frametitle{Bl\"ocke}
+
+\begin{block}{Blocktitel}
+Blocktext 
+\end{block}
+
+\begin{exampleblock}{Blocktitel}
+Blocktext 
+\end{exampleblock}
+
+
+\begin{alertblock}{Blocktitel}
+Blocktext 
+\end{alertblock}
+\end{frame}
+
+\section{Abschnitt Nr. 5}
+\subsection{Geteilter Bildschirm}
+
+\begin{frame}\frametitle{Zerteilen des Bildschirmes}
+\begin{columns}
+\begin{column}{5cm}
+\begin{itemize}
+\item Beamer 
+\item Beamer Class 
+\item Beamer Class Latex 
+\end{itemize}
+\end{column}
+\begin{column}{5cm}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Kursleiter} & \textbf{Titel} \\
+\hline
+Sascha Frank &  \LaTeX \ Kurs 1 \\
+\hline
+Sascha Frank & \LaTeX \ Kursreihe \\
+\hline
+\end{tabular}
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Bilder} 
+\begin{frame}\frametitle{Bilder in Beamer}
+\begin{figure}
+% \includegraphics[scale=0.5]{PIC1} 
+\caption{Die Abbildung zeigt ein Beispielbild}
+\end{figure}
+\end{frame}
+
+
+\subsection{Bilder und Listen kombiniert} 
+
+\begin{frame}
+\frametitle{Bilder und Itemization in Beamer}
+\begin{columns}
+\begin{column}{5cm}
+\begin{itemize}
+\item<1-> Stichwort 1
+\item<3-> Stichwort 2
+\item<5-> Stichwort 3
+\end{itemize}
+\vspace{3cm} 
+\end{column}
+\begin{column}{5cm}
+\begin{overprint}
+% \includegraphics<2>{PIC1}
+% \includegraphics<4>{PIC2}
+% \includegraphics<6>{PIC3}
+\end{overprint}
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Bilder die mehr Platz brauchen} 
+\begin{frame}[plain]
+\frametitle{plain, oder wie man mehr Platz hat}
+\begin{figure}
+% \includegraphics[scale=0.5]{PIC1} 
+\caption{Die Abbildung zeigt ein Beispielbild}
+\end{figure}
+\end{frame}
+
+
+
+
+
+
+
+\end{document}
