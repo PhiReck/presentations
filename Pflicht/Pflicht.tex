@@ -50,7 +50,6 @@
 \titlepage
 \end{frame}
 
-\institute[Probevorlesung: Pflichtteil]{Probe\sout{\textcolor{red}{vorlesung}}vortrag TH Nürnberg, Numerik: Pflichtteil}
 
 
 \begin{frame}\frametitle{Probevorlesung?}
@@ -61,6 +60,7 @@
   \end{enumerate}
   \end{frame} 
 
+\institute[Probevorlesung: Pflichtteil]{Probe\sout{\textcolor{red}{vorlesung}}vortrag TH Nürnberg, Numerik: Pflichtteil}
 \begin{frame}
   \titlepage
   \end{frame}
@@ -79,6 +79,12 @@
 \end{frame} 
 
 
+\begin{frame}
+  \frametitle{Inhaltsverzeichnis}\tableofcontents
+  \end{frame} 
+
+\section{Numerik -- Einführung}
+
 \begin{frame}\frametitle{Nutzen der Numerik}
     \begin{block}{Numerik}
       Ein mathematisches Problem mit Hilfe des Computers näherungsweise zu lösen.
@@ -88,52 +94,50 @@
         \item (Lineare) Gleichungssysteme
         \item Integration
         \item Differentialgleichungen
-        \item Interpolation, Fitting???
+        \item Interpolation, Fitting
+        \item \dots
       \end{itemize}
-    \pause
-
-    BILD: Blackbox computer ---> eher nächste Seite
 \end{frame} 
 
 
 \begin{frame}\frametitle{Ist es sinnvoll, was der Computer berechnet?}
   \framesubtitle{Kondition, Stabilität, Konsistenz, Konvergenz}
-
-   BILDER?
-  \begin{block}{Kondition $\kappa$}
-    Wie stark sich ein Fehler in der Problemstellung/den Eingangsdaten auf das Ergebnis auswirkt. \\
+  \fontsize{8}{7.2}\selectfont
+  \begin{block}{Kondition: $\|f(x) - f(\tilde{x})\|$}
+    Wie stark sich ein Fehler in der Problemstellung/den Eingangsdaten auf das Ergebnis auswirkt.
     (Unabhängig von Algorithmus)
   \end{block}
-  \pause
-  \begin{block}{Stabilität $???$}
-    Wie stark wirkt sich ein Fehler in der Problemstellung/den Eingangsdaten auf das Ergebnis aus. \\
+  \begin{block}{Stabilität: $\|\tilde{f}(x) - \tilde{f}(\tilde{x})\|$}
+    Wie stark wirkt sich ein Fehler in der Problemstellung/den Eingangsdaten auf das Ergebnis aus.
     (Abhängig von Algorithmus)
   \end{block}
-  \pause
-  
-  \begin{block}{Konsistenz $???$}
-    Wie gut ein Algorithmus bei perfekten Eingangsdaten ist. \\
+  \begin{block}{Konsistenz: $\|f(x) - \tilde{f}(x)\|$}
+    Wie gut ein Algorithmus bei perfekten Eingangsdaten ist.
     (Abhängig von Algorithmus)
   \end{block}
-  \pause
-  
-  \begin{block}{Konvergenz $???$}
-    Wie schnell liefert der Algorithmus ein brauchbares Ergebnis. \\
+  \begin{block}{Konvergenz: $\|f(x) - \tilde{f}(\tilde{x})\|$}
+    Wie gut ein Algorithmus bei gestörten Eingangsdaten ist.
     (Abhängig von Algorithmus)
   \end{block}
+
+  $f(x)$: Exakte Lösung des Problems
+
+  $\tilde x$: gestörte Eingangsdaten
+
+  $\tilde f$: Näherungslösung durch numerischen Algorithmus
 \end{frame} 
 
-% \section{Beispiel -- Problemstellung}
+\section{Beispiel -- Problemstellung}
 
-% \section{Thema -- Verallgemeinertes Problem}
+\section{Thema -- Verallgemeinertes Problem}
 
-% \section{Thema -- Kondition}
+\subsection{Thema -- Kondition}
 
-% \section{Thema -- Algorithmus}
+\subsection{Thema -- Algorithmus}
 
-% \section{Thema -- Stabilität, Konsistenz, Konvergenz}
+\subsection{Thema -- Stabilität, Konsistenz, Konvergenz}
 
-% \section{Beispiel -- Lösung}
+\section{Beispiel -- Lösung}
 
 
 
@@ -197,8 +201,6 @@
 % \end{enumerate}
 % \end{frame}
 
-\section{Abschnitt Nr.3} 
-\subsection{Tabellen}
 \begin{frame}\frametitle{Tabellen}
 \begin{tabular}{|c|c|c|}
 \hline
@@ -223,8 +225,6 @@ A & B & C \\
 \end{frame}
 
 
-\section{Abschnitt Nr. 4}
-\subsection{Bl\"ocke}
 \begin{frame}\frametitle{Bl\"ocke}
 
 \begin{block}{Blocktitel}
@@ -241,8 +241,6 @@ Blocktext
 \end{alertblock}
 \end{frame}
 
-\section{Abschnitt Nr. 5}
-\subsection{Geteilter Bildschirm}
 
 \begin{frame}\frametitle{Zerteilen des Bildschirmes}
 \begin{columns}
@@ -267,7 +265,6 @@ Sascha Frank & \LaTeX \ Kursreihe \\
 \end{columns}
 \end{frame}
 
-\subsection{Bilder} 
 \begin{frame}\frametitle{Bilder in Beamer}
 \begin{figure}
 % \includegraphics[scale=0.5]{PIC1} 
@@ -276,7 +273,6 @@ Sascha Frank & \LaTeX \ Kursreihe \\
 \end{frame}
 
 
-\subsection{Bilder und Listen kombiniert} 
 
 \begin{frame}
 \frametitle{Bilder und Itemization in Beamer}
@@ -299,7 +295,6 @@ Sascha Frank & \LaTeX \ Kursreihe \\
 \end{columns}
 \end{frame}
 
-\subsection{Bilder die mehr Platz brauchen} 
 \begin{frame}[plain]
 \frametitle{plain, oder wie man mehr Platz hat}
 \begin{figure}
