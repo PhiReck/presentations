@@ -69,7 +69,7 @@
 \visible<3->{
 Vorraussetzung:
 \begin{itemize}
-  \item Differentialgleichungen/-systeme
+  \item (partielle) Differentialgleichungen/-systeme
   \item Fourier-Transformation
   \item Taylor-Entwicklung
 \end{itemize}}
@@ -85,24 +85,6 @@ Vorraussetzung:
 % \subsection{Physikalisch}
 
 
-% \begin{frame}[t] %Time Reversal Mirrors
-%  \frametitle{Time Reversal Mirrors}
-%  \begin{alertblock}{Wahrscheinlich ändern:}
-%   direkt das Video 
-%   \end{alertblock}
-% \begin{columns}
-%   \column{0.55\textwidth}
-%     \begin{figure}\centering
-%      \includegraphics[width = \columnwidth]{TM_1.png}
-%     \end{figure}
-%   \column{0.45\textwidth}
-%     \begin{figure}\centering
-%      \includegraphics[width = \columnwidth]{TM_2.png}
-%     \end{figure}
-% \end{columns}
-% \vspace{\fill}
-% {\footnotesize \alert{ Derode A, Tourin A. and Fink M.}, J. Appl. Phys. \textbf{85}, 6343–52 (1999)}
-% \end{frame}
 
 \begin{frame}%Water principle
   \frametitle{Time mirror for water waves -- \\instantaneous time mirror (ITM)}
@@ -113,14 +95,6 @@ Vorraussetzung:
   {\footnotesize \alert{Bacot V., Labousse M., Eddi A., Fink M., Fort E.}, Nature Physics 12, 972 (2016)}
   \end{frame}
   
-%   \begin{frame}%Water Example
-%   \frametitle{Time mirror for water waves -- \\instantaneous time mirror (ITM)}
-%       \begin{figure}\centering
-%        \includegraphics[width = \columnwidth]{water2a.png}
-%       \end{figure}
-%   \vspace{\fill}
-%   {\footnotesize \alert{Bacot V., Labousse M., Eddi A., Fink M., Fort E.}, Nature Physics 12, 972 (2016)}
-%   \end{frame}
 
   
 \begin{frame}[t]%Graphene Introduction
@@ -176,7 +150,7 @@ Vorraussetzung:
     \iu \hbar \frac{\partial}{\partial t}  \psi(x, y, t) = \hat{H} \cdot \psi(x, y, t) 
   \end{equation*}
 
-    \text{mit gegebenem }$\psi(x, y, t=0)$
+    \text{mit gegebenem }$\psi(x, y, t=0)$.
     \end{block}
 \end{frame}
 
@@ -208,7 +182,7 @@ Vorraussetzung:
 \end{frame}
 
 \begin{frame}[t] %Diskretisieren auf Gitter
-  \frametitle{Lösung von Teilproblemen Ia: Diskretisierung auf Raum-Gitter}
+  \frametitle{Diskretisierung auf Raum-Gitter}
  Quantenmechanische Elektron-Wellenfunktion: \\
  \sout{$\psi: \mathbb{R}^{n+1} \rightarrow \mathbb{C}^m$} $ \quad \text{$n$: Raum-Dimensionen, $m$: (Pseudo-)Spin-Dimension}$
  \\
@@ -222,8 +196,13 @@ Vorraussetzung:
     \iu \hbar \frac{\partial}{\partial t}  \psi\textcolor{red}{(t)} = \hat{H} \cdot \psi\textcolor{red}{(t)} 
   \end{equation*}
 
-    \text{mit gegebenem }$\psi\textcolor{red}{(t=0)}$
+    \text{mit gegebenem }$\psi\textcolor{red}{(t=0)}$.
     \end{block}
+\end{frame}
+
+\begin{frame}[t] 
+  \frametitle{Ableitung durch Differenzenquotienten hat schlechte Stabilität}
+Das ist eine Idee
 \end{frame}
 
 % \begin{frame}[t] %Diskretisieren auf Gitter
@@ -242,7 +221,7 @@ Vorraussetzung:
 % \end{frame}
 
 \begin{frame}[t] %Räumliche Ableitung durch Fourier-Trafo
-  \frametitle{Lösung von Teilproblemen II: Räumliche Ableitung durch Fourier-Transformationen}
+  \frametitle{Statt räumlicher Ableitung: Fourier-Transformationen}
   \vskip-1cm
   \begin{align*}
   \frac{\partial }{\partial x}f(x)
@@ -263,7 +242,7 @@ Vorraussetzung:
 
 
 \begin{frame}[t] %Zeitliche Ableitung durch formale Lösung
-  \frametitle{Lösung von Teilproblemen IIIa: Zeitliche Ableitung durch formale Lösung}
+  \frametitle{Statt zeitlicher Ableitung: Ausnutzen der formalen Lösung}
  Quantenmechanische Elektron-Wellenfunktion: \begin{equation*}\psi: \mathbb{R}^{n+1} \rightarrow \mathbb{C}^m \quad \text{$n$: Raum-Dimensionen, $m$: (Pseudo-)Spin-Dimension}\end{equation*}
 
  Hamilton-Operator (Differentialoperator): $\hat{H}(k_x, k_y, t)$
@@ -293,7 +272,7 @@ Vorraussetzung:
 
 
 \begin{frame}[t] %Berechnung der Matrix-Exponentialfunktion
-  \frametitle{Lösung von Teilproblemen IIIb: Berechnung der Matrix-Exponentialfunktion}
+  \frametitle{Statt zeitlicher Ableitung: Berechnung der Matrix-Exponentialfunktion}
   $e^{-\iu\hat{H}t}$ \pause ist definiert über Polynom-Darstellung:
   $e^{-\iu\hat{H}t }= \sum\limits_n a_n(-\iu t) P_n(\hat{H})$ 
   \pause
@@ -331,7 +310,7 @@ Vorraussetzung:
 \end{frame}
 
 \begin{frame}[t] %Lösung
-  \frametitle{Gesamte Lösung}
+  \frametitle{Gesamte Lösung zum Anfangswertproblem}
   \vskip-5mm
   % \begin{block}{Anfangswertproblem (AWP) mit partiellem DGLS (Graphen: 1. Ordnung)}
     \begin{equation*}
@@ -365,178 +344,198 @@ Vorraussetzung:
  \end{frame}
 
 
+ \section*{Appendix}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-% \begin{frame}
-% \frametitle{Titel} 
-% Die einzelnen Frames sollte einen Titel haben
-% \end{frame}
-% \subsection{Unterabschnitt Nr.1.1  }
-% \begin{frame} 
-% Denn ohne Titel fehlt ihnen was
-% \end{frame}
-
-
-% \section{Abschnitt Nr. 2} 
-% \subsection{Listen I}
-% \begin{frame}\frametitle{Aufz\"ahlung}
-% \begin{itemize}
-% \item Einf\"uhrungskurs in \LaTeX  
-% \item Kurs 2  
-% \item Seminararbeiten und Pr\"asentationen mit \LaTeX 
-% \item Die Beamerclass 
-% \end{itemize} 
-% \end{frame}
-
-% \begin{frame}\frametitle{Aufz\"ahlung mit Pausen}
-% \begin{itemize}
-% \item  Einf\"uhrungskurs in \LaTeX \pause 
-% \item  Kurs 2 \pause 
-% \item  Seminararbeiten und Pr\"asentationen mit \LaTeX \pause 
-% \item  Die Beamerclass
-% \end{itemize} 
-% \end{frame}
-
-% \subsection{Listen II}
-% \begin{frame}\frametitle{Numerierte Liste}
-% \begin{enumerate}
-% \item  Einf\"uhrungskurs in \LaTeX 
-% \item  Kurs 2
-% \item  Seminararbeiten und Pr\"asentationen mit \LaTeX 
-% \item  Die Beamerclass
-% \end{enumerate}
-% \end{frame}
-% \begin{frame}\frametitle{Numerierte Liste mit Pausen}
-% \begin{enumerate}
-% \item  Einf\"uhrungskurs in \LaTeX \pause 
-% \item  Kurs 2 \pause 
-% \item  Seminararbeiten und Pr\"asentationen mit \LaTeX \pause 
-% \item  Die Beamerclass
-% \end{enumerate}
-% \end{frame}
-
-% \section{Abschnitt Nr.3} 
-% \subsection{Tabellen}
-\begin{frame}\frametitle{Tabellen}
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Zeitpunkt} & \textbf{Kursleiter} & \textbf{Titel} \\
-\hline
-WS 04/05 & Sascha Frank &  Erste Schritte mit \LaTeX  \\
-\hline
-SS 05 & Sascha Frank & \LaTeX \ Kursreihe \\
-\hline
-\end{tabular}
-\end{frame}
-
-
-\begin{frame}\frametitle{Tabellen mit Pause}
-\begin{tabular}{c c c}
-A & B & C \\ 
-\pause 
-1 & 2 & 3 \\  
-\pause 
-A & B & C \\ 
-\end{tabular} 
-\end{frame}
-
-
-% \section{Abschnitt Nr. 4}
-% \subsection{Bl\"ocke}
-\begin{frame}\frametitle{Bl\"ocke}
-
-\begin{block}{Blocktitel}
-Blocktext 
-\end{block}
-
-\begin{exampleblock}{Blocktitel}
-Blocktext 
-\end{exampleblock}
-
-
-\begin{alertblock}{Blocktitel}
-Blocktext 
-\end{alertblock}
-\end{frame}
-
-% \section{Abschnitt Nr. 5}
-% \subsection{Geteilter Bildschirm}
-
-\begin{frame}\frametitle{Zerteilen des Bildschirmes}
+\begin{frame}[t] %Time Reversal Mirrors
+ \frametitle{Time Reversal Mirrors}
 \begin{columns}
-\begin{column}{5cm}
-\begin{itemize}
-\item Beamer 
-\item Beamer Class 
-\item Beamer Class Latex 
-\end{itemize}
-\end{column}
-\begin{column}{5cm}
-\begin{tabular}{|c|c|}
-\hline
-\textbf{Kursleiter} & \textbf{Titel} \\
-\hline
-Sascha Frank &  \LaTeX \ Kurs 1 \\
-\hline
-Sascha Frank & \LaTeX \ Kursreihe \\
-\hline
-\end{tabular}
-\end{column}
+  \column{0.55\textwidth}
+    \begin{figure}\centering
+     \includegraphics[width = \columnwidth]{TM_1.png}
+    \end{figure}
+  \column{0.45\textwidth}
+    \begin{figure}\centering
+     \includegraphics[width = \columnwidth]{TM_2.png}
+    \end{figure}
 \end{columns}
-\end{frame}
-
-% \subsection{Bilder} 
-\begin{frame}\frametitle{Bilder in Beamer}
-\begin{figure}
-% \includegraphics[scale=0.5]{PIC1} 
-\caption{Die Abbildung zeigt ein Beispielbild}
-\end{figure}
+\vspace{\fill}
+{\footnotesize \alert{ Derode A, Tourin A. and Fink M.}, J. Appl. Phys. \textbf{85}, 6343–52 (1999)}
 \end{frame}
 
 
-% \subsection{Bilder und Listen kombiniert} 
 
-\begin{frame}
-\frametitle{Bilder und Itemization in Beamer}
-\begin{columns}
-\begin{column}{5cm}
-\begin{itemize}
-\item<1-> Stichwort 1
-\item<3-> Stichwort 2
-\item<5-> Stichwort 3
-\end{itemize}
-\vspace{3cm} 
-\end{column}
-\begin{column}{5cm}
-\begin{overprint}
-% \includegraphics<2>{PIC1}
-% \includegraphics<4>{PIC2}
-% \includegraphics<6>{PIC3}
-\end{overprint}
-\end{column}
-\end{columns}
+\begin{frame}%Water Example
+\frametitle{Time mirror for water waves -- \\instantaneous time mirror (ITM)}
+    \begin{figure}\centering
+      \includegraphics[width = 0.8\columnwidth]{water2a.png}
+    \end{figure}
+\vspace{\fill}
+{\footnotesize \alert{Bacot V., Labousse M., Eddi A., Fink M., Fort E.}, Nature Physics 12, 972 (2016)}
 \end{frame}
 
-% \subsection{Bilder die mehr Platz brauchen} 
-\begin{frame}[plain]
-\frametitle{plain, oder wie man mehr Platz hat}
-\begin{figure}
-% \includegraphics[scale=0.5]{PIC1} 
-\caption{Die Abbildung zeigt ein Beispielbild}
-\end{figure}
+\begin{frame}%Photon band structure - dispersion Relation
+  \frametitle{Reminder -- group/phase velocity of photons}
+  
+  \begin{columns}
+  %  
+    \column{0.4\textwidth}
+  \begin{center}
+  % \only<1>{ 
+  %     \def\svgwidth{0.8\columnwidth}
+  %     \input{./pictures/photons-bands3.pdf_tex}}
+  \only<1>{    \def\svgwidth{0.8\columnwidth}
+      \input{./pictures/photons-bands-init.pdf_tex}}
+  \only<2>{ \def\svgwidth{0.8\columnwidth}
+      \input{./pictures/photons-bands-trans.pdf_tex}}
+  \end{center}
+  % 
+  %   \column{0.35\textwidth}
+  % 
+    \column{0.6\textwidth}
+  \begin{itemize}
+    \item phase velocity: $v_p = \frac{1 }{\hbar} \frac{ E }{k} = c$
+    \item group velocity: $v_g = \frac{1 }{\hbar} \frac{\partial E }{\partial k} = c$
+  \end{itemize}
+  
+  % \vskip 0.2cm
+  %  \includegraphics[width=0.65\textwidth]{loschmidt1.jpeg}
+  
+  
+  \end{columns}
 \end{frame}
+
+\begin{frame}[t]%Principle
+  \frametitle{Echo mechanism}
+  \vskip -0.5cm
+  \begin{columns}
+  
+    \column{0.3\textwidth} 
+  \begin{center}
+   \visible<1->{$t<t_0$}
+  \end{center}
+  \vskip-0.2cm
+  
+  \only<1>{ \begin{figure} \centering 
+      \def\svgwidth{\columnwidth}
+      \input{./pictures/graphene-sketch1.pdf_tex}
+  {\small $H_0=\hbar v_F \mathbf{k}\cdot\boldsymbol{\sigma}$}
+    \end{figure} }
+  \only<2->{ \begin{figure} \centering 
+      \def\svgwidth{\columnwidth}
+      \input{./pictures/graphene-sketch2.pdf_tex}
+  % 
+  {\small $H_0=\hbar v_F \mathbf{k}\cdot\boldsymbol{\sigma}$}
+    \end{figure} }
+  % \vskip-0.4cm
+  % \begin{center}
+  %  \visible<1->{{\small $H_0=\hbar v_F \mathbf{k}\cdot\boldsymbol{\sigma}$}}
+  % \end{center}
+  
+  
+    \column{0.3\textwidth} 
+  \begin{center}
+   \visible<1->{$t_0< t<t_0 + \Delta t$ }
+  \end{center}
+  \vskip-0.2cm
+  \visible<3->{ \begin{figure} \centering
+      \def\svgwidth{\columnwidth}
+      \input{./pictures/graphene-sketch3c.pdf_tex}
+  {\small $H = H_0 + M \sigma_z$}
+    \end{figure} }
+  % \vskip-0.4cm
+  % \begin{center}
+  %  \visible<3-> {\small $H = H_0 + M \sigma_z$}
+  % \end{center}
+    
+    \column{0.3\textwidth} 
+    \begin{center}
+      \visible<1->{$t_0 + \Delta t < t$ }
+    \end{center}
+  \vskip-0.2cm
+  \visible<4->{ \begin{figure} \centering 
+      \def\svgwidth{\columnwidth}
+      \input{./pictures/graphene-sketch4.pdf_tex}
+  {\small $H = H_0$}
+    \end{figure} }
+  
+  % \vskip-10.6cm
+  %   \begin{center}
+  %     \visible<4->{{\small $H = H_0$}}
+  %   \end{center}
+  \end{columns}
+  
+  \vskip0.4cm
+  \visible<5->{{\footnotesize Transition Amplitude: \textcolor{red}{$b_k = \frac{-\iu}{\sqrt{1+\frac{\hbar^2v_F^2k^2}{M^2}}} \sin\left( \frac{M\Delta t}{\hbar}\sqrt{1+\frac{\hbar^2v_F^2k^2}{M^2}}\right)$}}}
+  
+  \end{frame}
+
+  
+\begin{frame}[t]%Space correlation of hbar
+  \frametitle{Quantitative analysis of the propagation}
+  \vskip-0.7cm
+  \begin{columns}
+   \column{0.7\textwidth}
+  
+  \begin{figure}\centering
+      \includegraphics[width=0.9\columnwidth]{hbar_nc5a}
+  \end{figure}
+  
+    \column{0.295\textwidth}
+  \hskip-1cm
+  \\  Space Correlation:\\
+  $\int d^2r |\Phi(\mathbf{r}, t)| |\Phi(\mathbf{r}, 0)|$\\
+  % \vskip 0.7cm
+  % \hskip-0.5cm
+  % Disorder:\\
+  %  \textcolor{blue}{$\tau = 0.8 t_0$} \\
+  %  \textcolor{green!60!black}{$\tau = 0.2 t_0$}
+  
+  
+  \end{columns}
+  \vskip-0.2cm
+  
+  \begin{figure}\centering
+   \includegraphics[width=0.7\textwidth]{hbar2-separate_revSunset}
+  \end{figure}
+  
+  \end{frame}
+
+%Disorder 
+\begin{frame}%Disorder Theory
+  \frametitle{Disorder: $H = H_0 + M(t) \sigma_z + V(\vq) \sigma_0$ }
+  \begin{block}{Disorder potential}
+  \begin{center} $V_{\mathrm{imp}}(\vq) = \frac{u_{\mathrm{imp}}}{\mathcal{N}} \sum\limits_i \beta_i e^{-\frac{(\vq-\vq_i)^2}{l_0^2}}$\end{center}
+  % 
+  % \vskip-0.6cm
+  \begin{itemize}
+   \item $\beta_i$ normally distributed (prob. density: $\frac{1}{\sqrt{2\pi}} \, e^{-\beta_i^2/2})$)
+   \item elastic scattering time $\tau_k$:
+  \end{itemize}
+  \vskip-0.4cm
+    \begin{align*}\rightarrow \quad 1/\tau_k &=  \int \frac{{\rm d}\vk^\prime \,{\rm d}\vq}{2\pi\hbar^2} \delta(k-k^\prime) \langle V_\mathrm{imp}(0)V_\mathrm{imp}(\vq)\rangle e^{i \vk^\prime\cdot\vq } \\ &= \frac{2\pi}{v_F\hbar^2} \,u_{\mathrm{imp}}^2 \,l_0^2 \,k\, e^{-l_0^2k^2} I_0(l_0^2k^2) \end{align*}
+  \end{block}
+  $I_0(x)$: modified Bessel function of the first kind\hfill {\footnotesize ($I_\nu(x) = \iu^{-\nu} J_\nu(\iu x)$)}
+  \end{frame}
+  
+  \begin{frame}%Disorder simulation
+  \frametitle{Disorder: $H = H_0 + M(t) \sigma_z + V(\vq) \sigma_0$ }
+  \begin{itemize}
+  \item $1/\tau_k = \frac{2\pi}{v_F\hbar^2} \,u_{\mathrm{imp}}^2 \,l_0^2 \,k\, e^{-l_0^2k^2} I_0(l_0^2k^2)$
+  \item Theory: echo strength $\simeq e^{-t_0/\tau_k}$
+  \end{itemize}
+  
+  \begin{figure}\centering
+      \includegraphics[width=1.0\columnwidth]{loschmidt5}
+  \end{figure}
+  \end{frame}
+
+ \begin{frame}%HahnEcho
+  \frametitle{Spin echo vs. Zitterbewegungs echo}
+ 
+siehe separaten Vortrag
+  
+  \end{frame}
 
 
 
